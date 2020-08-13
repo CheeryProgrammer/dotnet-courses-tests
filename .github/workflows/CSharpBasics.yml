@@ -16,8 +16,6 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.301
-    - run: cd ./1-csharp-basics/CSharpBasics
-    - run: ls
     - name: Install dependencies
       run: dotnet restore ./1-csharp-basics/CSharpBasics/CSharpBasics.sln
     - name: Build
@@ -30,5 +28,14 @@ jobs:
     needs: build
     
     steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore ./1-csharp-basics/CSharpBasics/CSharpBasics.sln
+    - name: Build
+      run: dotnet build ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --configuration Release --no-restore
     - name: Tests
       run: dotnet test ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --no-restore --verbosity normal
