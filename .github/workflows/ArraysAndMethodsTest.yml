@@ -1,0 +1,24 @@
+name: Arrays and methods / test
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+
+  test:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln
+    - name: Build
+      run: dotnet build ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --configuration Release --no-restore
+    - name: Tests
+      run: dotnet test ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --no-restore --verbosity normal
