@@ -18,8 +18,8 @@ jobs:
     - run: cd ./1-csharp-basics/CSharpBasics
     - run: ls
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore ./1-csharp-basics/CSharpBasics/CSharpBasics.sln
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --configuration Release --no-restore
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
+      run: dotnet test ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --no-restore --verbosity normal
