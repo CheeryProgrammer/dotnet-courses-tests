@@ -1,4 +1,4 @@
-name: CSharpBasics build
+name: C# Basics / build
 
 on:
   push:
