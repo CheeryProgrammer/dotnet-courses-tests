@@ -3,7 +3,10 @@ name: Arrays and methods / test
 on:
   push:
     branches: [ master ]
-
+    
+    paths:
+      - '2-arrays-and-methods/*'
+      
 jobs:
 
   test:

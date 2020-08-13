@@ -4,6 +4,9 @@ on:
   push:
     branches: [ master ]
 
+    paths:
+      - '1-csharp-basics/*'
+      
 jobs:
   test:
     
