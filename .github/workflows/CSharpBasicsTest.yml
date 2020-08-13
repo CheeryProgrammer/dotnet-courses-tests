@@ -20,4 +20,4 @@ jobs:
     - name: Build
       run: dotnet build ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --configuration Release --no-restore
     - name: Tests
-      run: dotnet test ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --no-restore --verbosity normal
+      run: dotnet test ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --no-restore -v:q
