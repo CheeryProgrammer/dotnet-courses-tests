@@ -20,7 +20,7 @@ namespace Task4
 				}
 			}
 			
-			return accum;
+			return accum+5;
 		}
 	}
 }
