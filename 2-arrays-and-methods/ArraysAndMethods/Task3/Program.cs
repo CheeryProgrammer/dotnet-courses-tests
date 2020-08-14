@@ -11,7 +11,13 @@ namespace Task3
 
 		public static int GetSumOfPositiveElements(int[] array)
 		{
-			return -3;
+			int accum = 0;
+			for(int i=0;i<array.Length;i++)
+			{
+				if(array[i] < 0) continue;
+				accum = accum + array[i];
+			}
+			return accum;
 		}
 	}
 }
