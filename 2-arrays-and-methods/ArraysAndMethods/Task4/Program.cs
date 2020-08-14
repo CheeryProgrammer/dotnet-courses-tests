@@ -10,7 +10,7 @@ namespace Task4
 
 		public static int GetSumOfElementsInEvenPositions(int[,] array)
 		{
-			throw new NotImplementedException($"Метод {nameof(GetSumOfElementsInEvenPositions)} не реализован");
+			throw new NotImplementedException($"Метод {nameof(GetSumOfElementsInEvenPositions)} не реализован.");
 		}
 	}
 }
