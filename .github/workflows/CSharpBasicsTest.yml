@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
     paths:
-      - '*1-csharp-basics/*'
+      - '1-csharp-basics/**'
       
 jobs:
   test:
