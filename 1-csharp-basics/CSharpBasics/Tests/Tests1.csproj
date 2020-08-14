@@ -16,4 +16,5 @@
     <ProjectReference Include="..\..\..\ThirdParty\ThirdParty\ThirdParty.csproj" />
     <ProjectReference Include="..\Task1\Task1.csproj" />
   </ItemGroup>
+
 </Project>
