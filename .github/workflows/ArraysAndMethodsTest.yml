@@ -24,4 +24,4 @@ jobs:
     - name: Build
       run: dotnet build ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --configuration Release --no-restore
     - name: Tests
-      run: dotnet test ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --no-restore --no-build -v:n
+      run: dotnet test ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --configuration Release --no-restore --no-build -v:n
