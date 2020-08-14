@@ -20,7 +20,9 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore ./1-csharp-basics/CSharpBasics/CSharpBasics.sln
-    - name: Build
+    - name: Build Debug
+      run: dotnet build ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --configuration Debug --no-restore
+    - name: Build Release
       run: dotnet build ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --configuration Release --no-restore
     - name: Tests
       run: dotnet test ./1-csharp-basics/CSharpBasics/CSharpBasics.sln --no-restore --no-build -v:n
