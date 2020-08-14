@@ -21,7 +21,9 @@ jobs:
         dotnet-version: 3.1.301
     - name: Install dependencies
       run: dotnet restore ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln
-    - name: Build
+    - name: Build debug
+      run: dotnet build ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --configuration Debug --no-restore
+    - name: Build release
       run: dotnet build ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --configuration Release --no-restore
     - name: Tests
-      run: dotnet test ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --configuration Release --no-restore --no-build -v:n
+      run: dotnet test ./2-arrays-and-methods/ArraysAndMethods/ArraysAndMethods.sln --no-restore --no-build -v:n
