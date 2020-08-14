@@ -5,7 +5,7 @@ on:
     branches: [ master ]
     
     paths:
-      - '2-arrays-and-methods/*'
+      - '2-arrays-and-methods/**'
       
 jobs:
 
