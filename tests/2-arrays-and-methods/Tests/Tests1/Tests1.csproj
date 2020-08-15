@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\dotnet-courses-tasks\2-arrays-and-methods\Task1\Task1.csproj" />
     <ProjectReference Include="..\..\..\..\ThirdParty\ThirdParty\ThirdParty.csproj" />
   </ItemGroup>
 

@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\tasks\1-csharp-basics\Task2\Task2.csproj" />
     <ProjectReference Include="..\..\..\..\ThirdParty\ThirdParty\ThirdParty.csproj" />
-    <ProjectReference Include="..\Task2\Task2.csproj" />
   </ItemGroup>
 
 </Project>
