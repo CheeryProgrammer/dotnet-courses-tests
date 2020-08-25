@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\tasks\2-arrays-and-methods\Task3\Task3.csproj" />
+    <ProjectReference Include="..\..\..\..\..\tasks\02-arrays-and-methods\ArraysAndMethods\Task3\Task3.csproj" />
   </ItemGroup>
 
 </Project>
