@@ -14,17 +14,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests5", "Tests\Tests5\Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{E9195033-C8DD-4042-B5B3-6FFCB95A5546}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "..\..\..\tasks\01-csharp-basics\CSharpBasics\Task1\Task1.csproj", "{DD1BA34F-497B-40D0-8C7C-DE13073945C3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "..\..\tasks\01-csharp-basics\Task1\Task1.csproj", "{DD1BA34F-497B-40D0-8C7C-DE13073945C3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "..\..\..\tasks\01-csharp-basics\CSharpBasics\Task2\Task2.csproj", "{57913C22-174E-4ED1-8FFA-D37F5621987B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "..\..\tasks\01-csharp-basics\Task2\Task2.csproj", "{57913C22-174E-4ED1-8FFA-D37F5621987B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\..\tasks\01-csharp-basics\CSharpBasics\Task3\Task3.csproj", "{077EC7D6-F063-4934-8C4F-98B807638CE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\tasks\01-csharp-basics\Task3\Task3.csproj", "{077EC7D6-F063-4934-8C4F-98B807638CE8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\..\tasks\01-csharp-basics\CSharpBasics\Task4\Task4.csproj", "{21F19CD4-8397-4853-BC85-FE5716810A6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\01-csharp-basics\Task4\Task4.csproj", "{21F19CD4-8397-4853-BC85-FE5716810A6B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5", "..\..\..\tasks\01-csharp-basics\CSharpBasics\Task5\Task5.csproj", "{07F93BD2-F9A2-4B70-8A17-FA9866DEC7E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5", "..\..\tasks\01-csharp-basics\Task5\Task5.csproj", "{07F93BD2-F9A2-4B70-8A17-FA9866DEC7E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdParty", "..\..\..\ThirdParty\ThirdParty\ThirdParty.csproj", "{86938E08-6935-422A-B097-66D5D2F20CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdParty", "..\..\ThirdParty\ThirdParty\ThirdParty.csproj", "{86938E08-6935-422A-B097-66D5D2F20CB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
