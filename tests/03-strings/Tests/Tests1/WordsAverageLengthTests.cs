@@ -26,22 +26,22 @@ namespace Tests1
 
 		[Test]
 		[TestCaseSource(nameof(TestCases))]
-		public void ForSingleWordShouldReturnItsLength(string input, string expected)
+		public void AverageWordsLengthTest(TestData<string> testData)
 		{
 			var console = new StringConsole();
-			console.WriteLineToInput(input);
+			console.WriteLineToInput(testData.Input);
 			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
 			string actual = console.ReadAllLines().Last();
-			string errorMessage = $"{Environment.NewLine}Ввод: '{input}'{Environment.NewLine}Ожидается: '{expected}'{Environment.NewLine}Было: '{actual}'";
-			Assert.AreEqual(expected, actual, errorMessage);
+
+			Assert.AreEqual(testData.Expected, actual, testData.GetErrorMessage(actual));
 		}
 
 		public static IEnumerable<TestCaseData> TestCases()
 		{
 			string testName = "Подсчет средней длины слова во введенной строке";
-			yield return new TestCaseData("test", "4").SetName(testName);
-			yield return new TestCaseData("test, testtesttest", "8").SetName(testName);
-			yield return new TestCaseData("Привет, Мир!", 4.5.ToString()).SetName(testName);
+			yield return TestData.CreateTestCaseData("test", "4", testName);
+			yield return TestData.CreateTestCaseData("test, testtesttest", "8", testName);
+			yield return TestData.CreateTestCaseData("Привет, Мир!", "4.5", testName);
 		}
 	}
 }
