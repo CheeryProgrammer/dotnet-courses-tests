@@ -3,7 +3,7 @@ using System.IO;
 using System.Reflection;
 using System.Text;
 
-namespace ThirdParty
+namespace TestHelpers
 {
 	internal class ReadableStringWriter: StringWriter
 	{

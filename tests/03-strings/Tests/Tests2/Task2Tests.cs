@@ -5,15 +5,15 @@ using System.Linq;
 using TestHelpers;
 using TestHelpers.Common;
 
-namespace Tests1
+namespace Tests2
 {
-	public class WordsAverageLengthTests : TestFixtureBase<WordsAverageLengthTests>
+	public class Task2Tests : TestFixtureBase<Task2Tests>
 	{
 		private Type subjectType;
 
-		static WordsAverageLengthTests()
+		static Task2Tests()
 		{
-			ReflectionHelper = ReflectionHelper.CreateForAssembly("Task1");
+			ReflectionHelper = ReflectionHelper.CreateForAssembly("Task2");
 		}
 
 		[SetUp]
@@ -24,7 +24,7 @@ namespace Tests1
 
 		[Test]
 		[TestCaseSource(nameof(TestCases))]
-		public void AverageWordsLengthTest(TestData<string> testData)
+		public void SymbolDuplicationTest(TestData<string> testData)
 		{
 			var console = new StringConsole();
 			console.WriteAllLinesToInput(testData.Input);
@@ -36,10 +36,9 @@ namespace Tests1
 
 		public static IEnumerable<TestCaseData> TestCases()
 		{
-			string testName = "Подсчет средней длины слова во введенной строке";
-			yield return TestData.CreateTestCaseData(new[] { "test" }, "4", testName);
-			yield return TestData.CreateTestCaseData(new[] { "test, testtesttest" }, "8", testName);
-			yield return TestData.CreateTestCaseData(new[] { "Привет, Мир!" }, "4.5", testName);
+			string testName = "Удвоение в первой строке символов из второй строки";
+			yield return TestData.CreateTestCaseData(new[] { "написать программу, которая", "описание" }, "ннааппииссаать ппроограамму, коотоораая", testName);
+			yield return TestData.CreateTestCaseData(new[] { "", "описание" }, "", testName);
 		}
 	}
 }

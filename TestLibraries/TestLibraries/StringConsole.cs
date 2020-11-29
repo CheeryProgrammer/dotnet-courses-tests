@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ThirdParty
+namespace TestHelpers
 {
 	public class StringConsole
 	{
@@ -24,6 +24,11 @@ namespace ThirdParty
 		public void WriteLineToInput(string input)
 		{
 			consoleIn.WriteLine(input);
+		}
+
+		public void WriteAllLinesToInput(string[] input)
+		{
+			Array.ForEach(input, consoleIn.WriteLine);
 		}
 
 		public char? ReadOutput()

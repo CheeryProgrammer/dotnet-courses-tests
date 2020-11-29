@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace TestHelpers.Common
 {
 	[TestFixture]
-	public abstract class TestFixtureBase
+	public abstract class TestFixtureBase<T>
 	{
-		protected static ReflectionHelper ReflectionHelper { get; set; }
+		protected static ReflectionHelper ReflectionHelper;
 
 		[Test]
 		[TestCaseSource(nameof(CodeStyleTestCaseSource))]

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Reflection;
 
-namespace ThirdParty
+namespace TestHelpers
 {
 	internal class WritableStringReader: StringReader
 	{
