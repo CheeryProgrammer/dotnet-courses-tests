@@ -21,7 +21,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\tasks\02-arr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\02-arrays-and-methods\Task4\Task4.csproj", "{00E706E5-7360-4166-ADDA-B8FAF25ECA5D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdParty", "..\..\ThirdParty\ThirdParty\ThirdParty.csproj", "{C8BEDBA3-90FC-42F6-96C7-F0FF3C457925}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibraries", "..\..\TestLibraries\TestLibraries\TestHelpers.csproj", "{C8BEDBA3-90FC-42F6-96C7-F0FF3C457925}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

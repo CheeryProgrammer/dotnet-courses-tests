@@ -7,13 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="nunit" Version="3.12.0" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\tasks\02-arrays-and-methods\Task1\Task1.csproj" />
+    <ProjectReference Include="..\..\..\..\tasks\03-strings\Task1\Task1.csproj" />
     <ProjectReference Include="..\..\..\..\TestLibraries\TestLibraries\TestHelpers.csproj" />
   </ItemGroup>
 

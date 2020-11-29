@@ -14,7 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\..\tasks\01-csharp-basics\Task2\Task2.csproj" />
-    <ProjectReference Include="..\..\..\..\ThirdParty\ThirdParty\ThirdParty.csproj" />
+    <ProjectReference Include="..\..\..\..\TestLibraries\TestLibraries\TestHelpers.csproj" />
   </ItemGroup>
 
 </Project>

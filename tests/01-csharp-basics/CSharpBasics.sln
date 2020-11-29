@@ -24,7 +24,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\01-csh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5", "..\..\tasks\01-csharp-basics\Task5\Task5.csproj", "{07F93BD2-F9A2-4B70-8A17-FA9866DEC7E1}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ThirdParty", "..\..\ThirdParty\ThirdParty\ThirdParty.csproj", "{86938E08-6935-422A-B097-66D5D2F20CB2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibraries", "..\..\TestLibraries\TestLibraries\TestHelpers.csproj", "{86938E08-6935-422A-B097-66D5D2F20CB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

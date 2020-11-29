@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ThirdParty
 {
@@ -33,6 +34,15 @@ namespace ThirdParty
 		public string? ReadLineFromOutput()
 		{
 			return consoleOut.ReadLine();
+		}
+
+		public string[] ReadAllLines()
+		{
+			List<string> lines = new List<string>();
+			string line;
+			while ((line = consoleOut.ReadLine()) != null)
+				lines.Add(line);
+			return lines.ToArray();
 		}
 	}
 }
