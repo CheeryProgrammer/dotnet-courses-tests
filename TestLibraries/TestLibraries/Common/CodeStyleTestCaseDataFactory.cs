@@ -20,7 +20,11 @@ namespace TestHelpers.Common
 					if (type.FullName.Equals(method.DeclaringType.FullName))
 					{
 						string errorMessage = $"Метод должен быть назван с прописной буквы: {type.Name}.{method.Name}";
-						yield return new TestCaseData((Func<bool>)(() => Char.IsUpper(method.Name[0])), errorMessage)
+						/*yield return new TestCaseData((Func<bool>)(() => Char.IsUpper(method.Name[0])), errorMessage)
+							.SetName("Название метода");*/
+
+						string pascalCaseMethodName = Char.ToUpperInvariant(method.Name[0]) + method.Name.Substring(1);
+						yield return new TestCaseData($"{type.Name}.{method.Name}", $"{type.Name}.{pascalCaseMethodName}", errorMessage)
 							.SetName("Название метода");
 					}
 				}

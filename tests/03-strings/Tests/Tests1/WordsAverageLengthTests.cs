@@ -3,18 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TestHelpers;
+using TestHelpers.Attributes;
 using TestHelpers.Common;
 
 namespace Tests1
 {
+	[TargetAssembly("Task1")]
 	public class WordsAverageLengthTests : TestFixtureBase<WordsAverageLengthTests>
 	{
 		private Type subjectType;
-
-		static WordsAverageLengthTests()
-		{
-			ReflectionHelper = ReflectionHelper.CreateForAssembly("Task1");
-		}
 
 		[SetUp]
 		public void Setup()

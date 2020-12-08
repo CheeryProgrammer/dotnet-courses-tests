@@ -3,18 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using TestHelpers;
+using TestHelpers.Attributes;
 using TestHelpers.Common;
 
 namespace Tests2
 {
+	[TargetAssembly("Task2")]
 	public class Task2Tests : TestFixtureBase<Task2Tests>
 	{
 		private Type subjectType;
-
-		static Task2Tests()
-		{
-			ReflectionHelper = ReflectionHelper.CreateForAssembly("Task2");
-		}
 
 		[SetUp]
 		public void Setup()
