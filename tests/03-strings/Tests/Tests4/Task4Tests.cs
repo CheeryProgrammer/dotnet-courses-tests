@@ -19,8 +19,9 @@ namespace Tests4
 		}
 
 		[Test]
+		[TestCase(null, TestName = "Сравнение производительности String и StringBuilder")]
 		[Timeout(5000)]
-		public void ProgramShouldHaveCorrectOutput()
+		public void ProgramShouldHaveCorrectOutput(object dummy)
 		{
 			var console = new StringConsole();
 			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
