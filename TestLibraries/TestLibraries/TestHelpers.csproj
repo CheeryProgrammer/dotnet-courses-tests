@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.0.4" />
     <PackageReference Include="NUnit" Version="3.12.0" />
   </ItemGroup>
 

@@ -4,6 +4,7 @@ using System.Linq;
 using TestHelpers;
 using TestHelpers.Attributes;
 using TestHelpers.Common;
+using TestHelpers.IO;
 
 namespace Tests4
 {
@@ -20,15 +21,15 @@ namespace Tests4
 
 		[Test]
 		[TestCase(null, TestName = "Сравнение производительности String и StringBuilder")]
-		[Timeout(5000)]
+		[Timeout(10000)]
 		public void ProgramShouldHaveCorrectOutput(object dummy)
 		{
-			var console = new StringConsole();
+			using var console = new ConsoleMock();
 			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
 
 			string expectedOutput = $"String: [number]{Environment.NewLine}StringBuilder: [number]";
 
-			string[] lines = console.ReadAllLines();
+			string[] lines = console.ReadOutputLines();
 
 			Assert.Greater(lines.Length, 1, $"Ожидаемый вывод:{Environment.NewLine}{expectedOutput}");
 			Assert.IsTrue(lines[0].StartsWith("String: "), $"Ожидаемый вывод:{Environment.NewLine}{expectedOutput}");

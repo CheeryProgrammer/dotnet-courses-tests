@@ -5,6 +5,7 @@ using System.Linq;
 using TestHelpers;
 using TestHelpers.Attributes;
 using TestHelpers.Common;
+using TestHelpers.IO;
 
 namespace Tests2
 {
@@ -23,10 +24,14 @@ namespace Tests2
 		[TestCaseSource(nameof(TestCases))]
 		public void SymbolDuplicationTest(TestData<string> testData)
 		{
-			var console = new StringConsole();
-			console.WriteAllLinesToInput(testData.Input);
+			InputPlanner planner = new InputPlanner();
+			using var console = new ConsoleMock();
+			planner.ScheduleLines(testData.Input);
+			console.Schedule(planner);
+
 			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
-			string actual = console.ReadAllLines().Last();
+			
+			string actual = console.ReadOutputLines().Last();
 
 			Assert.AreEqual(testData.Expected, actual, testData.GetErrorMessage(actual));
 		}

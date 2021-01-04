@@ -3,6 +3,7 @@ using System;
 using TestHelpers;
 using TestHelpers.Attributes;
 using TestHelpers.Common;
+using TestHelpers.IO;
 
 namespace Tests3
 {
@@ -20,9 +21,10 @@ namespace Tests3
 		[Test]
 		public void ProgramOutputShouldNotBeEmpty()
 		{
-			var console = new StringConsole();
+			using var console = new ConsoleMock();
 			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
-			Assert.Greater(console.ReadAllLines().Length, 0, "Программа не должна иметь пустой вывод");
+			string output = console.ReadOutput().Trim();
+			Assert.Greater(output.Length, 0, "Программа не должна иметь пустой вывод");
 		}
 	}
 }
