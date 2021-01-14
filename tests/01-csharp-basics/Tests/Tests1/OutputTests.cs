@@ -1,26 +1,23 @@
 using NUnit.Framework;
+using System.Linq;
 using Task1;
-using ThirdParty;
+using TestHelpers.IO;
 
 namespace Tests
 {
 	public class Tests
 	{
-		public StringConsole StringConsole;
-
-		[SetUp]
-		public void Setup()
-		{
-			StringConsole = new StringConsole();
-		}
-
 		[Test]
 		public void SquareOf10By20ShouldBe200()
 		{
-			StringConsole.WriteLineToInput("10");
-			StringConsole.WriteLineToInput("20");
+			InputPlanner planner = new InputPlanner();
+			planner.ScheduleLine("10");
+			planner.ScheduleLine("20");
+			using var consoleMock = new ConsoleMock();
+			consoleMock.Schedule(planner);
+
 			Program.Main(null);
-			Assert.AreEqual("200", StringConsole.ReadLineFromOutput());
+			Assert.AreEqual("200", consoleMock.ReadOutputLines().Last());
 		}
 	}
 }
