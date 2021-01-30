@@ -3,12 +3,23 @@ using System;
 using System.Linq;
 using Task3;
 using TestHelpers;
+using TestHelpers.Attributes;
+using TestHelpers.Common;
 using TestHelpers.IO;
 
 namespace Tests3
 {
-	public class OutputTests
+	[TargetAssembly("Task3")]
+	public class OutputTests: TestFixtureBase<OutputTests>
 	{
+		private Type subjectType;
+
+		[SetUp]
+		public void Setup()
+		{
+			subjectType = ReflectionHelper.FindType("Program");
+		}
+
 		[Test]
 		public void SpruceShouldBeInOutput()
 		{
@@ -17,7 +28,7 @@ namespace Tests3
 			planner.ScheduleLine(count.ToString());
 			using ConsoleMock console = new ConsoleMock();
 			console.Schedule(planner);
-			Program.Main(null);
+			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
 
 			string[] consoleOutput = console.ReadOutputLines();
 			int spruceFirstLine = consoleOutput

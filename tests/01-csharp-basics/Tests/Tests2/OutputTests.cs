@@ -1,12 +1,22 @@
 using NUnit.Framework;
 using System;
-using Task2;
+using TestHelpers.Attributes;
+using TestHelpers.Common;
 using TestHelpers.IO;
 
 namespace Tests2
 {
-	public class OutputTests
+	[TargetAssembly("Task2")]
+	public class OutputTests: TestFixtureBase<OutputTests>
 	{
+		private Type subjectType;
+
+		[SetUp]
+		public void Setup()
+		{
+			subjectType = ReflectionHelper.FindType("Program");
+		}
+
 		[Test]
 		public void SpruceShouldBeInOutput()
 		{
@@ -15,7 +25,8 @@ namespace Tests2
 			planner.ScheduleLine(count.ToString());
 			using ConsoleMock console = new ConsoleMock();
 			console.Schedule(planner);
-			Program.Main(null);
+
+			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
 
 			string[] consoleOutput = console.ReadOutputLines();
 			int spruceFirstLine = Array.IndexOf(consoleOutput,"*");

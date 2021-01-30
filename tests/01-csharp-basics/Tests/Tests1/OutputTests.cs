@@ -1,12 +1,23 @@
 using NUnit.Framework;
+using System;
 using System.Linq;
-using Task1;
+using TestHelpers.Attributes;
+using TestHelpers.Common;
 using TestHelpers.IO;
 
 namespace Tests
 {
-	public class Tests
+	[TargetAssembly("Task1")]
+	public class Tests: TestFixtureBase<Tests>
 	{
+		private Type subjectType;
+
+		[SetUp]
+		public void Setup()
+		{
+			subjectType = ReflectionHelper.FindType("Program");
+		}
+
 		[Test]
 		public void SquareOf10By20ShouldBe200()
 		{
@@ -16,7 +27,7 @@ namespace Tests
 			using var consoleMock = new ConsoleMock();
 			consoleMock.Schedule(planner);
 
-			Program.Main(null);
+			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
 			Assert.AreEqual("200", consoleMock.ReadOutputLines().Last());
 		}
 	}
