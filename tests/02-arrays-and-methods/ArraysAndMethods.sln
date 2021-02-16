@@ -13,13 +13,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests1", "Tests\Tests1\Test
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F104548D-7222-4D52-A5D3-4A330F5B0CFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "..\..\tasks\02-arrays-and-methods\Task1\Task1.csproj", "{B43B0ABF-54A3-4B46-8007-857D85A74132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "..\..\tasks\02-arrays-and-methods\ArraysAndMethods\Task1\Task1.csproj", "{B43B0ABF-54A3-4B46-8007-857D85A74132}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "..\..\tasks\02-arrays-and-methods\Task2\Task2.csproj", "{EAAC6178-BDEB-4E5A-B527-AF8B0BDCBCF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "..\..\tasks\02-arrays-and-methods\ArraysAndMethods\Task2\Task2.csproj", "{EAAC6178-BDEB-4E5A-B527-AF8B0BDCBCF6}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\tasks\02-arrays-and-methods\Task3\Task3.csproj", "{9ED48585-3858-41FA-87DF-776B05FBAEFD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\tasks\02-arrays-and-methods\ArraysAndMethods\Task3\Task3.csproj", "{9ED48585-3858-41FA-87DF-776B05FBAEFD}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\02-arrays-and-methods\Task4\Task4.csproj", "{00E706E5-7360-4166-ADDA-B8FAF25ECA5D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\02-arrays-and-methods\ArraysAndMethods\Task4\Task4.csproj", "{00E706E5-7360-4166-ADDA-B8FAF25ECA5D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestLibraries", "..\..\TestLibraries\TestLibraries\TestHelpers.csproj", "{C8BEDBA3-90FC-42F6-96C7-F0FF3C457925}"
 EndProject

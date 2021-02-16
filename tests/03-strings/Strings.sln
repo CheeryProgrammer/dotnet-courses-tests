@@ -5,19 +5,19 @@ VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3F28E9A3-2ED7-4EAC-B0CB-8B7B892E973E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "..\..\tasks\03-strings\Task1\Task1.csproj", "{0C8B5CF7-64D3-497A-9C61-5CDA5EF098DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task1", "..\..\tasks\03-strings\Strings\Task1\Task1.csproj", "{0C8B5CF7-64D3-497A-9C61-5CDA5EF098DC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "..\..\tasks\03-strings\Task2\Task2.csproj", "{D2FEDB07-10B7-475C-967E-2C038283DFE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task2", "..\..\tasks\03-strings\Strings\Task2\Task2.csproj", "{D2FEDB07-10B7-475C-967E-2C038283DFE4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\tasks\03-strings\Task3\Task3.csproj", "{78E3AEA0-A7C9-4C88-8CC0-CA040788F9A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task3", "..\..\tasks\03-strings\Strings\Task3\Task3.csproj", "{78E3AEA0-A7C9-4C88-8CC0-CA040788F9A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\03-strings\Task4\Task4.csproj", "{FBAC5D61-1ABA-482E-9AB2-22E48EAE89A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task4", "..\..\tasks\03-strings\Strings\Task4\Task4.csproj", "{FBAC5D61-1ABA-482E-9AB2-22E48EAE89A7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5", "..\..\tasks\03-strings\Task5\Task5.csproj", "{D1285C6D-EFBA-40EA-A27B-165C161444A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task5", "..\..\tasks\03-strings\Strings\Task5\Task5.csproj", "{D1285C6D-EFBA-40EA-A27B-165C161444A5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task6", "..\..\tasks\03-strings\Task6\Task6.csproj", "{FD9341C9-BE38-4640-B51E-26CB0646D53B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task6", "..\..\tasks\03-strings\Strings\Task6\Task6.csproj", "{FD9341C9-BE38-4640-B51E-26CB0646D53B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task7", "..\..\tasks\03-strings\Task7\Task7.csproj", "{98A6D8F5-18EA-47D6-8037-D5663406AD04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Task7", "..\..\tasks\03-strings\Strings\Task7\Task7.csproj", "{98A6D8F5-18EA-47D6-8037-D5663406AD04}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tests1", "Tests\Tests1\Tests1.csproj", "{99A7D5D3-EE7B-4FA0-86FD-15AA82BA2CF9}"
 EndProject
