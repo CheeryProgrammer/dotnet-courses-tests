@@ -54,7 +54,7 @@ namespace Tests4
 			{
 				for (int j = 0; j <= i; j++)
 				{
-					Assert.AreEqual(spruce[j, count], spruceActual[lineNumber++], $"Ошибка в строке {lineNumber}");
+					Assert.AreEqual(spruce[j, count], spruceActual[lineNumber++], $"Ошибка в строке {i}");
 				}
 			}
 		}
