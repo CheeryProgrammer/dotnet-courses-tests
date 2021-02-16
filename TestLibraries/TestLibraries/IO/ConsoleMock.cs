@@ -42,9 +42,9 @@ namespace TestHelpers.IO
 		{
 			string output = ReadOutput();
 			if (output.StartsWith(Environment.NewLine))
-				output = output[2..];
+				output = output[Environment.NewLine.Length..];
 			if (output.EndsWith(Environment.NewLine))
-				output = output[..^2];
+				output = output[..^Environment.NewLine.Length];
 			return output.Split(Environment.NewLine);
 		}
 
