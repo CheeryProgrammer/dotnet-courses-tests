@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\tasks\03-strings\Task5\Task5.csproj" />
+    <ProjectReference Include="..\..\..\..\tasks\03-strings\Strings\Task5\Task5.csproj" />
     <ProjectReference Include="..\..\..\..\TestLibraries\TestLibraries\TestHelpers.csproj" />
   </ItemGroup>
 
