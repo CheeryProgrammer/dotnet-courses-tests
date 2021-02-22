@@ -20,9 +20,9 @@ namespace Tests4
 		}
 
 		[Test]
-		public void SpruceShouldBeInOutput()
+		[TestCase(10, TestName = "Вывод ёлочки из 10 сегментов")]
+		public void SpruceShouldBeInOutput(int count)
 		{
-			int count = 10;
 			InputPlanner planner = new InputPlanner();
 			planner.ScheduleLine(count.ToString());
 			using ConsoleMock console = new ConsoleMock();
@@ -32,9 +32,13 @@ namespace Tests4
 			string[] consoleOutput = console.ReadOutputLines();
 			int spruceFirstLine = consoleOutput
 				.IndexOf(line => line.Count(ch => ch.Equals('*')) == 1);
-			Assert.AreNotEqual(spruceFirstLine, -1);
+			Assert.AreNotEqual(spruceFirstLine, -1, "Вершина ёлочки не найдена");
 			string[] spruceActual = consoleOutput[spruceFirstLine..];
-			Assert.AreEqual(CalculateSpruceHeight(count), spruceActual.Length);
+
+			var expectedHeight = CalculateSpruceHeight(count);
+			var actualHeight = spruceActual.Length;
+
+			Assert.AreEqual(expectedHeight, actualHeight, $"Высота ёлочки: ожидалось - {expectedHeight}, было - {actualHeight}");
 			AssertSpruce(count, spruceActual);
 		}
 

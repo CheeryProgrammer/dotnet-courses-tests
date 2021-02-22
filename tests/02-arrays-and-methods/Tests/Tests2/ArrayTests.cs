@@ -1,11 +1,24 @@
 using Task2;
 using NUnit.Framework;
+using TestHelpers.Attributes;
+using TestHelpers.Common;
+using System;
 
 namespace Tests2
 {
-	public class ArrayTests
+	[TargetAssembly("Task2")]
+	public class ArrayTests : TestFixtureBase<ArrayTests>
 	{
+		private Type subjectType;
+
+		[SetUp]
+		public void Setup()
+		{
+			subjectType = ReflectionHelper.FindType("Program");
+		}
+
 		[Test]
+		[TestCase(TestName = "Метод ReplacePositiveElementsWithZero существует и заменяет положительные значения нулями")]
 		public void MethodShouldReplacePositiveNumbersWithZeros()
 		{
 			int[,,] expected =
@@ -34,7 +47,7 @@ namespace Tests2
 				}
 			};
 
-			Program.ReplacePositiveElementsWithZeros(actual);
+			ReflectionHelper.ExecuteStaticMethod(subjectType, "ReplacePositiveElementsWithZero", actual);
 
 			AssertAreEqual(expected, actual);
 
@@ -50,7 +63,7 @@ namespace Tests2
 					{
 						for (int k = 0; k < expected.GetLength(2); k++)
 						{
-							Assert.AreEqual(expected[i, j, k], actual[i, j, k], $"[{i}{j}{k}] �������� �� �����");
+							Assert.AreEqual(expected[i, j, k], actual[i, j, k], $"[{i}{j}{k}]: ожидалось - {expected[i, j, k]}, было - {actual[i, j, k]}");
 						}
 					}
 				}

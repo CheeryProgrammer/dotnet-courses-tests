@@ -1,12 +1,26 @@
 using Task4;
 using NUnit.Framework;
+using TestHelpers.Attributes;
+using TestHelpers.Common;
+using System;
+using TestHelpers;
 
 namespace Tests4
 {
-	public class Tests
+	[TargetAssembly("Task4")]
+	public class Tests : TestFixtureBase<Tests>
 	{
+		private Type subjectType;
+
+		[SetUp]
+		public void Setup()
+		{
+			subjectType = ReflectionHelper.FindType("Program");
+		}
+
 		[Test]
-		public void Test1()
+		[TestCase(TestName = "Метод GetSumOfElementsOnEvenPositions должен существовать и правильно считать сумму элементов на четных позициях")]
+		public void CalculateSumOfElementsOnEvenPosistions()
 		{
 			int[,] array =
 			{
@@ -16,9 +30,13 @@ namespace Tests4
 			};
 
 			int expected = 38;
-			int actual = Program.GetSumOfElementsInEvenPositions(array);
 
-			Assert.AreEqual(expected, actual);
+
+			int actual = (int)ReflectionHelper.ExecuteStaticMethod(subjectType, "GetSumOfElementsOnEvenPositions", array);
+
+			var testMessage = new TestMessage<int>(array.ToStringRepresentation(), expected, actual);
+
+			Assert.AreEqual(expected, actual, testMessage.ToString());
 		}
 	}
 }

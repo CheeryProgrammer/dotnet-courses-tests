@@ -18,11 +18,12 @@ namespace Tests5
 		}
 
 		[Test]
+		[TestCase(TestName = "Вывод суммы")]
 		public void AssertNumber()
 		{
 			using ConsoleMock consoleMock = new ConsoleMock();
 			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
-			Assert.IsTrue((7 << 15 | 7 << 9 | 3 << 6 | 1 << 4).ToString() == consoleMock.ReadOutput().Trim());
+			Assert.IsTrue((7 << 15 | 7 << 9 | 3 << 6 | 1 << 4).ToString() == consoleMock.ReadOutput().Trim(), "Сумма посчитана неверно");
 		}
 	}
 }

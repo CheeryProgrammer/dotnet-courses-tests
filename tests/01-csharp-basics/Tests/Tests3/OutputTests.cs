@@ -21,9 +21,9 @@ namespace Tests3
 		}
 
 		[Test]
-		public void SpruceShouldBeInOutput()
+		[TestCase(10, TestName = "Вывод пирамидки высотой 10")]
+		public void SpruceShouldBeInOutput(int count)
 		{
-			int count = 10;
 			InputPlanner planner = new InputPlanner();
 			planner.ScheduleLine(count.ToString());
 			using ConsoleMock console = new ConsoleMock();
@@ -33,9 +33,9 @@ namespace Tests3
 			string[] consoleOutput = console.ReadOutputLines();
 			int spruceFirstLine = consoleOutput
 				.IndexOf(line => line.Count(ch => ch.Equals('*')) == 1);
-			Assert.AreNotEqual(spruceFirstLine, -1);
+			Assert.AreNotEqual(spruceFirstLine, -1, $"Вершина пирамидки не найдена");
 			string[] spruceActual = consoleOutput[spruceFirstLine..];
-			Assert.AreEqual(count, spruceActual.Length);
+			Assert.AreEqual(count, spruceActual.Length, $"Высота пирамидки: ожидалось - {count}, было - {spruceActual.Length}");
 			AssertSpruce(count, spruceActual);
 		}
 

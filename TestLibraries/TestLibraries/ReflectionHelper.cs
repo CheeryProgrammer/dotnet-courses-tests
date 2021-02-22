@@ -27,10 +27,10 @@ namespace TestHelpers
 				.ToArray();			
 		}
 
-		public void ExecuteStaticMethod(Type type, string methodName, params object[] args)
+		public object ExecuteStaticMethod(Type type, string methodName, params object[] args)
 		{
 			var method = type.GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
-			method.Invoke(null, args);
+			return method.Invoke(null, args);
 		}
 
 		public static ReflectionHelper CreateForAssembly(string assemblyName)

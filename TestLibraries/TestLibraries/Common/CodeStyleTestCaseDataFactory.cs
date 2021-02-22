@@ -25,7 +25,8 @@ namespace TestHelpers.Common
 
 						string pascalCaseMethodName = Char.ToUpperInvariant(method.Name[0]) + method.Name.Substring(1);
 						yield return new TestCaseData($"{type.Name}.{method.Name}", $"{type.Name}.{pascalCaseMethodName}", errorMessage)
-							.SetName("Название метода");
+							.SetName("[Кодстайл] Название методов")
+							.SetCategory("Кодстайл");
 					}
 				}
 			}
