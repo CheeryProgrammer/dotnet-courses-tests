@@ -28,7 +28,7 @@ namespace Tests
 			using var consoleMock = new ConsoleMock();
 			consoleMock.Schedule(planner);
 
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 			var expected = width * height;
 			var actual = consoleMock.ReadOutputLines().Last();
 			Assert.AreEqual(expected.ToString(), actual, $"Площадь прямоугольника {width} x {height}. Ожидалось {expected}, но было {actual}");
