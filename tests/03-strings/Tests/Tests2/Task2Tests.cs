@@ -29,7 +29,7 @@ namespace Tests2
 			planner.ScheduleLines(testData.Input);
 			console.Schedule(planner);
 
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 			
 			string actual = console.ReadOutputLines().Last();
 

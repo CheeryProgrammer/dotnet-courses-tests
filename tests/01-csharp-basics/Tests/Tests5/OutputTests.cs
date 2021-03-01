@@ -22,7 +22,7 @@ namespace Tests5
 		public void AssertNumber()
 		{
 			using ConsoleMock consoleMock = new ConsoleMock();
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 			Assert.IsTrue((7 << 15 | 7 << 9 | 3 << 6 | 1 << 4).ToString() == consoleMock.ReadOutput().Trim(), "Сумма посчитана неверно");
 		}
 	}

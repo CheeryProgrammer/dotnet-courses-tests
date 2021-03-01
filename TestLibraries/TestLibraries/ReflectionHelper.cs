@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
@@ -26,6 +25,16 @@ namespace TestHelpers
 				.Where(t => !t.CustomAttributes.Any(attr => attr.AttributeType == typeof(CompilerGeneratedAttribute)))
 				.ToArray();			
 		}
+
+        public object ExecuteMain(Type type)
+        {
+            var mainMethod = type.GetMethod("Main", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
+            var parameter = mainMethod.GetParameters();
+
+            return parameter.Any()
+                ? mainMethod.Invoke(null, new object[] { null })
+                : mainMethod.Invoke(null, null);
+        }
 
 		public object ExecuteStaticMethod(Type type, string methodName, params object[] args)
 		{

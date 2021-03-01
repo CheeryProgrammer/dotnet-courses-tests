@@ -22,7 +22,7 @@ namespace Tests3
 		public void ProgramOutputShouldNotBeEmpty()
 		{
 			using var console = new ConsoleMock();
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 			string output = console.ReadOutput().Trim();
 			Assert.Greater(output.Length, 0, "Программа не должна иметь пустой вывод");
 		}

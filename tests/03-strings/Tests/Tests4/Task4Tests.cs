@@ -25,7 +25,7 @@ namespace Tests4
 		public void ProgramShouldHaveCorrectOutput(object dummy)
 		{
 			using var console = new ConsoleMock();
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 
 			string expectedOutput = $"String: [number]{Environment.NewLine}StringBuilder: [number]";
 

@@ -27,7 +27,7 @@ namespace Tests4
 			planner.ScheduleLine(count.ToString());
 			using ConsoleMock console = new ConsoleMock();
 			console.Schedule(planner);
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 
 			string[] consoleOutput = console.ReadOutputLines();
 			int spruceFirstLine = consoleOutput
