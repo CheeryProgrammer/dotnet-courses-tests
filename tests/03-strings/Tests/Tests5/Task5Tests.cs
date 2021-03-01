@@ -30,7 +30,7 @@ namespace Tests5
 			using var console = new ConsoleMock();
 			console.Schedule(inputPlanner);
 			
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 
 			string[] output = console.ReadOutputLines();
 			string actual = output.Last();

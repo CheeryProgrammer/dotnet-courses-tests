@@ -28,7 +28,7 @@ namespace Tests1
 			using var console = new ConsoleMock();
 			planner.ScheduleLines(testData.Input);
 			console.Schedule(planner);
-			ReflectionHelper.ExecuteStaticMethod(subjectType, "Main", new object[] { null });
+			ReflectionHelper.ExecuteMain(subjectType);
 			string actual = console.ReadOutputLines().Last();
 
 			Assert.AreEqual(testData.Expected, actual, testData.GetErrorMessage(actual));
