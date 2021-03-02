@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
+using TestHelpers.Data;
 
 namespace TestHelpers
 {
@@ -50,5 +52,56 @@ namespace TestHelpers
 
 			return new ReflectionHelper(assembly);
 		}
-	}
+
+        public object SetValueUsingSetter(object o, string property, object value)
+        {
+            var setter = GetPropertyAccessors(o.GetType(), property).FirstOrDefault(a => a.ReturnType == typeof(void));
+            if (setter == null)
+                throw new ArgumentNullException($"Cannot find a setter for {o.GetType()} - {property}");
+
+            return setter.Invoke(o, new[] { value });
+        }
+
+        public object GetValueUsingGetter(object o, string property)
+        {
+            var getter = GetPropertyAccessors(o.GetType(), property).FirstOrDefault(a => a.ReturnType != typeof(void));
+            if(getter == null)
+                throw new ArgumentNullException($"Cannot find a getter for {o.GetType()} - {property}");
+
+            return getter.Invoke(o, null);
+        }
+
+        public object ExecuteConstructorWithCorrectParametersOrder(Type type, params ClassData[] parameters)
+        {
+            var constructor = type
+                .GetConstructors()
+                .First(c => c.GetParameters().Length == parameters.Length);
+
+            var orderedParameters = PutParametersInCorrectOrder(constructor, parameters).ToArray();
+
+            return constructor.Invoke(orderedParameters);
+        }
+
+        public MethodInfo[] GetPropertyAccessors(Type type, string property)
+        {
+            return type
+                .GetProperty(property)
+                ?.GetAccessors();
+        }
+
+        private IEnumerable<object> PutParametersInCorrectOrder(ConstructorInfo constructor, ClassData[] parameters)
+        {
+            var parametersList = parameters.ToList();
+            foreach (var parameter in constructor.GetParameters())
+            {
+                var neededParameter =
+                    parametersList.FirstOrDefault(p => p.DataName.ToLower() == parameter.Name?.ToLower()) ??
+                    parametersList.FirstOrDefault(p => p.DataType == parameter.ParameterType);
+
+                parametersList.Remove(neededParameter);
+
+                yield return neededParameter.Value;
+            }
+        }
+    }
 }
