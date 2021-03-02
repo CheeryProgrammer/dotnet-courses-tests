@@ -29,7 +29,6 @@ namespace Tests1
 
             var user = ReflectionHelper.ExecuteConstructorWithCorrectParametersOrder(
                 _subjectType,
-
                 lastName,
                 name,
                 birthDate,
