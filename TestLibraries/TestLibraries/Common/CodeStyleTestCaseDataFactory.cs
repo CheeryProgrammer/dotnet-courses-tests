@@ -1,6 +1,7 @@
 ﻿using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 
 namespace TestHelpers.Common
@@ -14,16 +15,15 @@ namespace TestHelpers.Common
 			for (int i = 0; i < types.Length; i++)
 			{
 				Type type = types[i];
+                var methods = type.GetMethods(All).Where(m => !IsGetterOrSetter(m));
 
-				foreach(var method in type.GetMethods(All))
+				foreach (var method in methods)
 				{
 					if (type.FullName.Equals(method.DeclaringType.FullName))
 					{
 						string errorMessage = $"Метод должен быть назван с прописной буквы: {type.Name}.{method.Name}";
-						/*yield return new TestCaseData((Func<bool>)(() => Char.IsUpper(method.Name[0])), errorMessage)
-							.SetName("Название метода");*/
 
-						string pascalCaseMethodName = Char.ToUpperInvariant(method.Name[0]) + method.Name.Substring(1);
+                        string pascalCaseMethodName = Char.ToUpperInvariant(method.Name[0]) + method.Name.Substring(1);
 						yield return new TestCaseData($"{type.Name}.{method.Name}", $"{type.Name}.{pascalCaseMethodName}", errorMessage)
 							.SetName("[Кодстайл] Название методов")
 							.SetCategory("Кодстайл");
@@ -31,5 +31,11 @@ namespace TestHelpers.Common
 				}
 			}
 		}
+
+        private static bool IsGetterOrSetter(MethodInfo data)
+        {
+            return data.Name.Contains("set_") || 
+                   data.Name.Contains("get_");
+        }
 	}
 }
