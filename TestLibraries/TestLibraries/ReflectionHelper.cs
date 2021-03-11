@@ -38,13 +38,27 @@ namespace TestHelpers
                 : mainMethod.Invoke(null, null);
         }
 
-		public object ExecuteStaticMethod(Type type, string methodName, params object[] args)
+        public object ExecuteStaticMethod(Type type, string methodName, params object[] args)
 		{
 			var method = type.GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static);
 			return method.Invoke(null, args);
 		}
 
-		public static ReflectionHelper CreateForAssembly(string assemblyName)
+        public object ExecuteNonStaticMethod(object o, string methodName, params object[] args)
+        {
+            var method = o.GetType().GetMethod(methodName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+
+            return method.Invoke(o, args);
+        }
+
+        public object ExecuteCustomOperator(object o1, object o2, string operatorName)
+        {
+            return  o1.GetType()
+                .GetMethod(operatorName, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Static)
+                .Invoke(null, new [] { o1, o2 });
+        }
+
+        public static ReflectionHelper CreateForAssembly(string assemblyName)
 		{
 			var assembly = Assembly.Load(assemblyName);
 			if (assembly == null)
@@ -75,11 +89,24 @@ namespace TestHelpers
         {
             var constructor = type
                 .GetConstructors()
-                .First(c => c.GetParameters().Length == parameters.Length);
+                .First(FindExactConstructor(parameters));
 
-            var orderedParameters = PutParametersInCorrectOrder(constructor, parameters).ToArray();
+            var orderedParameters = parameters != null
+                ? PutParametersInCorrectOrder(constructor, parameters).ToArray()
+                : null;
 
             return constructor.Invoke(orderedParameters);
+        }
+
+        private static Func<ConstructorInfo, bool> FindExactConstructor(ClassData[] parameters)
+        {
+            return c =>
+            {
+                var constructorParameters = c.GetParameters();
+
+                return constructorParameters.Length == parameters.Length
+                       && constructorParameters.All(p => parameters.Any(p1 => p1.DataType == p.ParameterType));
+            };
         }
 
         public MethodInfo[] GetPropertyAccessors(Type type, string property)

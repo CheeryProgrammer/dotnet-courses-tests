@@ -1,6 +1,5 @@
 using System;
 using NUnit.Framework;
-using TestHelpers;
 using TestHelpers.Attributes;
 using TestHelpers.Common;
 using TestHelpers.Data;
@@ -19,7 +18,7 @@ namespace Tests1
         }
 
         [Test]
-        public void UserConstractorShouldCreateCorrectly()
+        public void UserConstructorShouldCreateCorrectly()
         {
             var age = new ClassData { DataName = "Age", Value = 20 };
             var birthDate = new ClassData { DataName = "BirthDate", Value = DateTime.Now.Date.AddYears(-(int)age.Value) };
@@ -34,10 +33,24 @@ namespace Tests1
                 birthDate,
                 patronymic);
 
-            Assert.AreEqual(name.Value, ReflectionHelper.GetValueUsingGetter(user, name.DataName));
-            Assert.AreEqual(lastName.Value, ReflectionHelper.GetValueUsingGetter(user, lastName.DataName));
-            Assert.AreEqual(patronymic.Value, ReflectionHelper.GetValueUsingGetter(user, patronymic.DataName));
-            Assert.AreEqual(age.Value, ReflectionHelper.GetValueUsingGetter(user, age.DataName));
+            AssertEquality(user, name);
+            AssertEquality(user, lastName);
+            AssertEquality(user, patronymic);
+            AssertEquality(user, age);
+        }
+
+        private void AssertEquality(object user, ClassData data)
+        {
+            var actual = ReflectionHelper.GetValueUsingGetter(user, data.DataName);
+
+            Assert.AreEqual(data.Value, actual, GetErrorMessage(data.DataName, data.Value, actual));
+        }
+
+        private string GetErrorMessage<T>(string property, T expected, object actual)
+        {
+            return $"{Environment.NewLine}Некорректное значение свойства {property} после инициализации через конструктор" +
+                   $"{Environment.NewLine}Ожидалось: {expected}" +
+                   $"{Environment.NewLine}Было: {actual}";
         }
     }
 }

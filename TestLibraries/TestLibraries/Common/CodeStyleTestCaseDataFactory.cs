@@ -15,7 +15,9 @@ namespace TestHelpers.Common
 			for (int i = 0; i < types.Length; i++)
 			{
 				Type type = types[i];
-                var methods = type.GetMethods(All).Where(m => !IsGetterOrSetter(m));
+                var methods = type.GetMethods(All).Where(m => 
+                    !IsGetterOrSetter(m) &&
+                    !IsOperator(m));
 
 				foreach (var method in methods)
 				{
@@ -36,6 +38,11 @@ namespace TestHelpers.Common
         {
             return data.Name.Contains("set_") || 
                    data.Name.Contains("get_");
+        }
+
+        private static bool IsOperator(MethodInfo data)
+        {
+            return data.Name.Contains("op_");
         }
 	}
 }

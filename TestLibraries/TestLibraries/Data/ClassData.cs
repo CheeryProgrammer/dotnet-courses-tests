@@ -6,6 +6,6 @@ namespace TestHelpers.Data
     {
         public string DataName { get; set; }
         public object Value { get; set; }
-        public Type DataType => Value.GetType();
+        public Type DataType => Value?.GetType();
     }
 }
