@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Reflection;
 using NUnit.Framework;
 using TestHelpers.Attributes;
@@ -18,10 +18,10 @@ namespace Tests3
             _subjectType = ReflectionHelper.FindType("Triangle");
         }
 
-        [TestCase(-1, 2, 2, "сторона треугольника отрицательная")]
-        [TestCase(2, -1, 2, "сторона треугольника отрицательная")]
-        [TestCase(2, 2, -1, "сторона треугольника отрицательная")]
-        [TestCase(1, 1, 3, "треугольник с заданными сторонами не существует")]
+        [TestCase(-1, 2, 2, "СЃС‚РѕСЂРѕРЅР° С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ")]
+        [TestCase(2, -1, 2, "СЃС‚РѕСЂРѕРЅР° С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ")]
+        [TestCase(2, 2, -1, "СЃС‚РѕСЂРѕРЅР° С‚СЂРµСѓРіРѕР»СЊРЅРёРєР° РѕС‚СЂРёС†Р°С‚РµР»СЊРЅР°СЏ")]
+        [TestCase(1, 1, 3, "С‚СЂРµСѓРіРѕР»СЊРЅРёРє СЃ Р·Р°РґР°РЅРЅС‹РјРё СЃС‚РѕСЂРѕРЅР°РјРё РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚")]
         public void TriangleShouldThrowExceptionWithIncorrectValues(int a, int b, int c, string message)
         {
             var aData = new ClassData { DataName = "A", Value = a };
@@ -29,7 +29,7 @@ namespace Tests3
             var cData = new ClassData { DataName = "A", Value = c };
 
             Assert.Throws<TargetInvocationException>(() => ReflectionHelper.ExecuteConstructorWithCorrectParametersOrder(_subjectType, aData, bData, cData),
-                $"Должно выбрасываться исключение в случае, если {message}");
+                $"Р”РѕР»Р¶РЅРѕ РІС‹Р±СЂР°СЃС‹РІР°С‚СЊСЃСЏ РёСЃРєР»СЋС‡РµРЅРёРµ РІ СЃР»СѓС‡Р°Рµ, РµСЃР»Рё {message}");
         }
 
         [Test]
@@ -67,9 +67,9 @@ namespace Tests3
 
         private string GetErrorMessage<T>(string property, T expected, object actual)
         {
-            return $"{Environment.NewLine}Некорректное значение {property} после инициализации через конструктор" +
-                   $"{Environment.NewLine}Ожидалось: {expected}" +
-                   $"{Environment.NewLine}Было: {actual}";
+            return $"{Environment.NewLine}РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ {property} РїРѕСЃР»Рµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё С‡РµСЂРµР· РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ" +
+                   $"{Environment.NewLine}РћР¶РёРґР°Р»РѕСЃСЊ: {expected}" +
+                   $"{Environment.NewLine}Р‘С‹Р»Рѕ: {actual}";
         }
     }
 }

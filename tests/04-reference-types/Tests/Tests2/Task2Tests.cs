@@ -1,4 +1,4 @@
-using System;
+п»їusing System;
 using System.Reflection;
 using NUnit.Framework;
 using TestHelpers.Attributes;
@@ -26,7 +26,7 @@ namespace Tests2
             var y = new ClassData { DataName = "Y", Value = 5 };
 
             Assert.Throws<TargetInvocationException>(() => ReflectionHelper.ExecuteConstructorWithCorrectParametersOrder(_subjectType, radius, x, y),
-                "При попытке создать объект класса Round с отрицательным радиусом должно выбрасываться исключение");
+                "РџСЂРё РїРѕРїС‹С‚РєРµ СЃРѕР·РґР°С‚СЊ РѕР±СЉРµРєС‚ РєР»Р°СЃСЃР° Round СЃ РѕС‚СЂРёС†Р°С‚РµР»СЊРЅС‹Рј СЂР°РґРёСѓСЃРѕРј РґРѕР»Р¶РЅРѕ РІС‹Р±СЂР°СЃС‹РІР°С‚СЊСЃСЏ РёСЃРєР»СЋС‡РµРЅРёРµ");
         }
 
         [Test]
@@ -68,9 +68,9 @@ namespace Tests2
 
         private string GetErrorMessage<T>(string property, T expected, object actual)
         {
-            return $"{Environment.NewLine}Некорректное значение свойства {property} после инициализации через конструктор" +
-                   $"{Environment.NewLine}Ожидалось: {expected}" +
-                   $"{Environment.NewLine}Было: {actual}";
+            return $"{Environment.NewLine}РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ СЃРІРѕР№СЃС‚РІР° {property} РїРѕСЃР»Рµ РёРЅРёС†РёР°Р»РёР·Р°С†РёРё С‡РµСЂРµР· РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ" +
+                   $"{Environment.NewLine}РћР¶РёРґР°Р»РѕСЃСЊ: {expected}" +
+                   $"{Environment.NewLine}Р‘С‹Р»Рѕ: {actual}";
         }
     }
 }
